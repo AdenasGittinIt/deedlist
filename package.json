@@ -21,6 +21,9 @@
   "devDependencies": {
     "@babel/cli": "^7.7.7",
     "@babel/core": "^7.7.7",
+    "@babel/plugin-transform-async-to-generator": "^7.7.4",
+    "@babel/plugin-transform-jscript": "^7.7.4",
+    "@babel/plugin-transform-object-assign": "^7.7.4",
     "@babel/preset-env": "^7.7.7",
     "babel-eslint": "^10.0.3",
     "chai": "^4.2.0",
