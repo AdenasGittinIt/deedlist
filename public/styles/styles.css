@@ -1,3 +1,80 @@
+body {
+  background-color:#ffecb3;
+}
+
+footer {
+  -webkit-animation-name: message;
+  -webkit-animation-duration: 7s;
+}
+
 .list-group-item {
   line-height: 2.5;
+}
+
+.headerLogo {
+text-align: center;
+display: flex;
+-webkit-animation-name: welcome;
+-webkit-animation-duration: 2.5s;
+}
+@keyframes welcome{
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
+.modalButton {
+  text-align: center;
+  background-color:#ffecb3;
+  margin-top:3%;
+  padding: 20px;
+  -webkit-animation-name: message;
+  -webkit-animation-duration: 4s;
+}
+
+@keyframes message{
+  0% {opacity:0;}
+  25%{opacity:.3}
+  50%{opacity:.6;}
+  100% {opacity: 1;}
+}
+
+.btn {
+  color: #eeeeee;
+  background-color: #ff5722;
+  width:20%;
+  height: 80px;
+  font-family: 'Lobster', cursive;
+  font-size: 40px;
+  text-transform: lowercase;
+  text-align: center;
+  margin-right: 60px;
+}
+
+.btn:hover {
+  color:#eceff1;
+  background-color:#e64a19;
+}
+
+.welcome {
+  font-family: 'Quicksand', sans-serif; 
+  font-size: 100px;
+  -webkit-animation-name: welcome;
+  -webkit-animation-duration: 3s;
+
+}
+@keyframes welcome{
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+.message {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 30px;
+  -webkit-animation-name: message;
+  -webkit-animation-duration: 5s;
+}
+
+@keyframes message{
+  0% {opacity:0;}
+  50%{opacity:0;}
+  100% {opacity: 1;}
 }
