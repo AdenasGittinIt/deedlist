@@ -1,5 +1,8 @@
 # language: node_js
-# node_js: "8"
+# rvm:
+#   - 12.13.0
+
+
 # branches:
 #   only:
 #   - master
@@ -8,3 +11,5 @@
 #     - node_modules
 # before_install:
 #   - mysql -e 'CREATE DATABASE testdb;'
+#   - npm i -g npm@version-number
+  
