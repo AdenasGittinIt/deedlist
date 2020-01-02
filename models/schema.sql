@@ -8,7 +8,7 @@ CREATE TABLE people (
   first_name VARCHAR (30) NOT NULL,
   last_name VARCHAR (30) NOT NULL,
   zip_code INT (30) NOT NULL,
-  cell_number INT (13) NOT NULL,
+  email VARCHAR (13) NOT NULL,
   PRIMARY KEY(id)
 );
 CREATE TABLE need (
