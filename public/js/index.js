@@ -96,8 +96,12 @@ var handleDeleteBtnClick = function() {
 
 // Add event listeners to the submit and delete buttons
 $(document).ready(function(){
+
+    // materialize js
     $('.modal').modal();
     $('select').formSelect();
+    $('.parallax').parallax();
+    $('.tap-target').tapTarget();
 });
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 $submitBtn.on("click", handleFormSubmit);

@@ -19,15 +19,28 @@
 </head>
 
 <body>
-  <div class="headerLogo">
-    <img src="/styles/assets/logo.png" alt="deedsListLogo" width="100%" height="100%">
-  </div>
 
-  <div class="modalButton">
-    {{!-- Need Modal trigger --}}
-    <a class="waves-effect waves-light btn modal-trigger" href="#modal-need">Need?</a>
-    {{!-- Deed Modal trigger --}}
-    <a class="waves-effect waves-light btn modal-trigger" href="#modal-deed">Deed!</a>
+
+  {{!-- PARALLAX --}}
+  <div class=" parallax-container">
+    <div class="parallax"><img src="/styles/assets/logo.png"></div>
+  </div>
+  <div class="section white">
+    <div class="row container">
+      <div class="modalButton">
+        {{!-- Need Modal trigger --}}
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal-need"><br>Need?</a>
+        {{!-- Deed Modal trigger --}}
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal-deed"><br>Deed!</a>
+        <br><br>
+      </div>
+      <a onclick="M.toast({classes:'toastIs', displayLength:8000, html: ' Post a need to create an organized check list your friends and family can access.<br><br> Want to do some good? Click deed to help someone who has posted a need and view their list.'})"
+        class="whatIs">Need Help?</a>
+    </div>
+  </div>
+  <div class="parallax-container">
+    <div class="parallax"><img src="/styles/assets/para2.png">
+    </div>
   </div>
 
 
@@ -41,7 +54,7 @@
         <form class="col s12">
           <div class="row">
             <div class="input-field col s6">
-              <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+              <input placeholder="John" id="first_name" type="text" class="validate">
               <label for="first_name">First Name</label>
             </div>
             <div class="input-field col s6">
@@ -74,7 +87,7 @@
             search result. A link will be sent to your email that you can share to your family and friends for your
             need.</span>
           <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            <a href="#need2" class="modal-close waves-effect waves-green btn-flat">Agree</a>
           </div>
         </div>
       </div>
@@ -83,6 +96,18 @@
   </div>
   </div>
   </div>
+  </div>
+
+
+  <!-- Modal Structure -->
+  <div id="need2" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
   </div>
 
   {{!-- Deed Modal Form --}}
@@ -97,7 +122,7 @@
         <p>If you have a deed # from a friend or family member enter above, if not press continue</p>
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Continue</a>
+        <a href="#need2" class="modal-close waves-effect waves-green btn-flat">Continue</a>
       </div>
     </div>
     <br><br>
@@ -108,7 +133,6 @@
     <div class="container">
       <div class="row blue-grey lighten-3">
         <div class="col s12">
-
           <!-- Modal Trigger -->
           <a class="waves-effect waves-light btn modal-trigger" style="padding: 16px;" href="#tos">terms</a>
 
@@ -151,9 +175,6 @@
                   href="https://www.privacypolicies.com/disclaimer-generator/">Disclaimer Generator</a></p>
               <p>The Company does not warrant that the Service is free of viruses or other harmful components.</p>
 
-
-
-
               <h1>External Links Disclaimer</h1>
               <p>The Service may contain links to external websites that are not provided or maintained by or in any
                 way
@@ -161,8 +182,6 @@
               <p>Please note that the Company does not guarantee the accuracy, relevance, timeliness, or completeness
                 of
                 any information on these external websites.</p>
-
-
 
               <h1>Errors and Omissions Disclaimer</h1>
               <p>The information given by the Service is for general guidance on matters of interest only. Even if the
@@ -221,7 +240,6 @@
               <ul>
                 <li>By email: rlgerma92@outlook.com</li>
               </ul>
-
             </div>
             <div class="modal-footer">
               <a href="#!" class="modal-close waves-effect waves-green btn-flat">Okay</a>
@@ -232,7 +250,8 @@
           <h5 class="white-text">Created By</h5>
           <ul>
             <li><a class="grey-text text-lighten-3" href="#!">Adena McGibbon<img src="/styles/assets/github.png"
-                  style="margin-left:12px;"></a></a></li>
+                  style="margin-left:12px;"></a>
+              </a></li>
             <li><a class="grey-text text-lighten-3" href="#!">Richard Germaine<img src="/styles/assets/github.png"
                   style="margin-left:12px;"></a>
             </li>
