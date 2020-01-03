@@ -14,6 +14,13 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1, 50]
             }
         },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 50]
+            }
+        },
         zip_code: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -21,13 +28,11 @@ module.exports = function(sequelize, DataTypes) {
                 len: [5, 9]
             }
         },
-        cell_number: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [10]
-            }
-        },
+        private: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: true,
+            allowNull: false
+        }
     });
     return People;
 };
