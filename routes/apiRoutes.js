@@ -40,7 +40,12 @@ module.exports = function(app) {
             res.json(dbExamples);
         });
     });
+
+    // Get needs using ID
+
+    // Delete route for needs that are claimed
     
+    // These were the api routes that were givin to us in starter code
     // Get all examples
     app.get("/api/examples", function(req, res) {
         db.Example.findAll({}).then(function(dbExamples) {
