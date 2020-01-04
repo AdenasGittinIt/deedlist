@@ -19,15 +19,28 @@
 </head>
 
 <body>
-  <div class="headerLogo">
-    <img src="/styles/assets/logo.png" alt="deedsListLogo" width="100%" height="100%">
-  </div>
 
-  <div class="modalButton">
-    {{!-- Need Modal trigger --}}
-    <a class="waves-effect waves-light btn modal-trigger" href="#modal-need">Need?</a>
-    {{!-- Deed Modal trigger --}}
-    <a class="waves-effect waves-light btn modal-trigger" href="#modal-deed">Deed!</a>
+
+  {{!-- PARALLAX --}}
+  <div class=" parallax-container">
+    <div class="parallax"><img src="/styles/assets/logo.png"></div>
+  </div>
+  <div class="section white">
+    <div class="row container">
+      <div class="modalButton">
+        {{!-- Need Modal trigger --}}
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal-need"><br>Need?</a>
+        {{!-- Deed Modal trigger --}}
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal-deed"><br>Deed!</a>
+        <br><br>
+      </div>
+      <a onclick="M.toast({classes:'toastIs', displayLength:8000, html: ' Post a need to create an organized check list your friends and family can access.<br><br> Want to do some good? Click deed to help someone who has posted a need and view their list.'})"
+        class="whatIs">Need Help?</a>
+    </div>
+  </div>
+  <div class="parallax-container">
+    <div class="parallax"><img src="/styles/assets/para2.png">
+    </div>
   </div>
 
 
@@ -41,7 +54,7 @@
         <form class="col s12">
           <div class="row">
             <div class="input-field col s6">
-              <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+              <input placeholder="John" id="first_name" type="text" class="validate">
               <label for="first_name">First Name</label>
             </div>
             <div class="input-field col s6">
@@ -49,17 +62,17 @@
               <label for="last_name">Last Name</label>
             </div>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input need value="My need is..." id="need" type="text" class="validate">
-              <label for="What is your Need?">What is your need?</label>
-            </div>
-          </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
-          <label for="email">Email</label>
+          <input id="cell" type="email" class="validate">
+          <label for="cell">Cell #</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="zip" type="email" class="validate">
+          <label for="zip">Zipcode</label>
         </div>
       </div>
       <div class="row">
@@ -74,7 +87,7 @@
             search result. A link will be sent to your email that you can share to your family and friends for your
             need.</span>
           <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            <a href="#need2" class="modal-close waves-effect waves-green btn-flat">Agree</a>
           </div>
         </div>
       </div>
@@ -85,24 +98,41 @@
   </div>
   </div>
 
+
+  <!-- Modal Structure -->
+  <div id="need2" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
   {{!-- Deed Modal Form --}}
   <div id="modal-deed" class="modal">
     <div class="modal-content">
       <h4>Do a deed!</h4>
-      <p>Not sure if this should go to a search/home page or if another form should be filled</p>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="deedID" type="email" class="validate">
+          <label for="deedID"></label>
+        </div>
+        <p>If you have a deed # from a friend or family member enter above, if not press continue</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#need2" class="modal-close waves-effect waves-green btn-flat">Continue</a>
+      </div>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Whatever dude</a>
-    </div>
+    <br><br>
   </div>
-  <br><br>
 
   {{!-- Footer --}}
   <footer class="page-footer blue-grey lighten-3">
     <div class="container">
       <div class="row blue-grey lighten-3">
         <div class="col s12">
-
           <!-- Modal Trigger -->
           <a class="waves-effect waves-light btn modal-trigger" style="padding: 16px;" href="#tos">terms</a>
 
@@ -117,7 +147,8 @@
               <h2>Interpretation</h2>
               <p>The words of which the initial letter is capitalized have meanings defined under the following
                 conditions.</p>
-              <p>The following definitions shall have the same meaning regardless of whether they appear in singular or
+              <p>The following definitions shall have the same meaning regardless of whether they appear in singular
+                or
                 in plural.</p>
 
               <h2>Definitions</h2>
@@ -134,47 +165,51 @@
               <h1>Disclaimer</h1>
               <p>The information contained on the Service is for general information purposes only.</p>
               <p>The Company assumes no responsibility for errors or omissions in the contents of the Service.</p>
-              <p>In no event shall the Company be liable for any special, direct, indirect, consequential, or incidental
+              <p>In no event shall the Company be liable for any special, direct, indirect, consequential, or
+                incidental
                 damages or any damages whatsoever, whether in an action of contract, negligence or other tort, arising
-                out of or in connection with the use of the Service or the contents of the Service. The Company reserves
+                out of or in connection with the use of the Service or the contents of the Service. The Company
+                reserves
                 the right to make additions, deletions, or modifications to the contents on the Service at any time
                 without prior notice. This Disclaimer is maintained by the <a
                   href="https://www.privacypolicies.com/disclaimer-generator/">Disclaimer Generator</a></p>
               <p>The Company does not warrant that the Service is free of viruses or other harmful components.</p>
 
-
-
-
               <h1>External Links Disclaimer</h1>
-              <p>The Service may contain links to external websites that are not provided or maintained by or in any way
+              <p>The Service may contain links to external websites that are not provided or maintained by or in any
+                way
                 affiliated with the Company.</p>
-              <p>Please note that the Company does not guarantee the accuracy, relevance, timeliness, or completeness of
+              <p>Please note that the Company does not guarantee the accuracy, relevance, timeliness, or completeness
+                of
                 any information on these external websites.</p>
-
-
 
               <h1>Errors and Omissions Disclaimer</h1>
               <p>The information given by the Service is for general guidance on matters of interest only. Even if the
                 Company takes every precaution to insure that the content of the Service is both current and accurate,
                 errors can occur. Plus, given the changing nature of laws, rules and regulations, there may be delays,
                 omissions or inaccuracies in the information contained on the Service.</p>
-              <p>The Company is not responsible for any errors or omissions, or for the results obtained from the use of
+              <p>The Company is not responsible for any errors or omissions, or for the results obtained from the use
+                of
                 this information.</p>
 
               <h1>Fair Use Disclaimer</h1>
               <p>The Company may use copyrighted material which has not always been specifically authorized by the
                 copyright owner. The Company is making such material available for criticism, comment, news reporting,
                 teaching, scholarship, or research.</p>
-              <p>The Company believes this constitutes a "fair use" of any such copyrighted material as provided for in
+              <p>The Company believes this constitutes a "fair use" of any such copyrighted material as provided for
+                in
                 section 107 of the United States Copyright law.</p>
-              <p>If You wish to use copyrighted material from the Service for your own purposes that go beyond fair use,
+              <p>If You wish to use copyrighted material from the Service for your own purposes that go beyond fair
+                use,
                 You must obtain permission from the copyright owner.</p>
 
               <h1>Views Expressed Disclaimer</h1>
               <p>The Service may contain views and opinions which are those of the authors and do not necessarily
-                reflect the official policy or position of any other author, agency, organization, employer or company,
+                reflect the official policy or position of any other author, agency, organization, employer or
+                company,
                 including the Company.</p>
-              <p>Comments published by users are their sole responsibility and the users will take full responsibility,
+              <p>Comments published by users are their sole responsibility and the users will take full
+                responsibility,
                 liability and blame for any libel or litigation that results from something written in or as a direct
                 result of something written in a comment. The Company is not liable for any comment published by users
                 and reserve the right to delete any comment for any reason whatsoever.</p>
@@ -185,7 +220,8 @@
                 should not be used as a substitute for consultation with professional accounting, tax, legal or other
                 competent advisers.</p>
               <p>In no event shall the Company or its suppliers be liable for any special, incidental, indirect, or
-                consequential damages whatsoever arising out of or in connection with your access or use or inability to
+                consequential damages whatsoever arising out of or in connection with your access or use or inability
+                to
                 access or use the Service.</p>
 
               <h1>"Use at Your Own Risk" Disclaimer</h1>
@@ -193,7 +229,8 @@
                 timeliness or of the results obtained from the use of this information, and without warranty of any
                 kind, express or implied, including, but not limited to warranties of performance, merchantability and
                 fitness for a particular purpose.</p>
-              <p>The Company will not be liable to You or anyone else for any decision made or action taken in reliance
+              <p>The Company will not be liable to You or anyone else for any decision made or action taken in
+                reliance
                 on the information given by the Service or for any consequential, special or similar damages, even if
                 advised of the possibility of such damages.</p>
 
@@ -203,7 +240,6 @@
               <ul>
                 <li>By email: rlgerma92@outlook.com</li>
               </ul>
-
             </div>
             <div class="modal-footer">
               <a href="#!" class="modal-close waves-effect waves-green btn-flat">Okay</a>
@@ -214,7 +250,8 @@
           <h5 class="white-text">Created By</h5>
           <ul>
             <li><a class="grey-text text-lighten-3" href="#!">Adena McGibbon<img src="/styles/assets/github.png"
-                  style="margin-left:12px;"></a></a></li>
+                  style="margin-left:12px;"></a>
+              </a></li>
             <li><a class="grey-text text-lighten-3" href="#!">Richard Germaine<img src="/styles/assets/github.png"
                   style="margin-left:12px;"></a>
             </li>

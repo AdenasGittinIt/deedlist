@@ -23,8 +23,8 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars"); // Routes
 
-require("./routes/apiRoutes")(app);
-
+require("./routes/people-apiRoutes")(app);
+require("./routes/need-apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = {
