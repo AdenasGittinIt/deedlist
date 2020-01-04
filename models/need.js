@@ -26,5 +26,14 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: true
         }
     });
+
+    Need.associate = function(models) {
+        Need.belongsTo(models.People, {
+            foreingKey: {
+                allowNull: false
+            }
+        });
+    };
+    
     return Need;
 };

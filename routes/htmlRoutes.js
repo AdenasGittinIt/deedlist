@@ -9,7 +9,6 @@ module.exports = function(app) {
             });
         });
     });
-
     // Load Need page and pass in an Need by id
     app.get("/Need/:id", function(req, res) {
         db.Need.findOne({ where: { id: req.params.id } }).then(function(dbNeed) {
