@@ -3,16 +3,17 @@ var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
+var $agreeBtn = $("#agree")
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-    savePerson: function(example) {
+    savePerson: function(person) {
         return $.ajax({
             headers: {
                 "Content-Type": "application/json"
             },
             type: "POST",
-            url: "api/examples",
+            url: "/api/people",
             data: JSON.stringify(person)
         });
     },
@@ -59,26 +60,26 @@ var refreshExamples = function() {
     });
 };
 
-// handlePeopleSubmit is called whenever we submit a new example
+// handlePersonSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handlePeopleSubmit = function(event) {
+var handlePersonSubmit = function(event) {
     event.preventDefault();
     var first_name = $("#first_name").val().trim();
     var last_name = $("#last_name").val().trim();
-    var cell = $("#cell").val().trim();
+    var email = $("#email").val().trim();
     var zip_code = $("#zip_code").val().trim();
     var private = $("#private").val();
 
     var person = {
         first_name: first_name,
         last_name: last_name,
-        cell: cell,
+        email: email,
         zip_code: zip_code,
         private: private
     }
 
-    if (!(first_name && last_name && mobile && zip_code && private)) {
-        alert("All fields are required");
+    if (!(first_name && last_name && email && zip_code && private)) {
+        alert("Be sure you have completed all required fields");
         return;
     }
 
@@ -111,9 +112,7 @@ $(document).ready(function(){
     $('.parallax').parallax();
     $('.tap-target').tapTarget();
 });
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
-$submitBtn.on("click", handleFormSubmit);
+$exampleList.on("click", ".delete", handleDeleteBtnClick)
 
-
-$submitBtn.on("click", handlePeopleSubmit);
+$agreeBtn.on("click", handlePersonSubmit)
 
