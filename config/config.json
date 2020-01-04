@@ -1,14 +1,18 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "root",
+=======
+    "password": "password",
+>>>>>>> eb23ea1549921a11c53f5012f7064eb10d104753
     "database": "deedlist_db",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "null",
+    "password": "password",
     "database": "deedlist_db",
     "host": "localhost",
     "dialect": "mysql",

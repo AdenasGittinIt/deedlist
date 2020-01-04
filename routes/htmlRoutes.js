@@ -1,6 +1,10 @@
 var db = require("../models");
+<<<<<<< HEAD
 
 module.exports = function (app) {
+=======
+module.exports = function(app) {
+>>>>>>> eb23ea1549921a11c53f5012f7064eb10d104753
     // Load index page
     app.get("/", function (req, res) {
         db.Need.findAll({}).then(function (dbNeed) {
@@ -19,6 +23,7 @@ module.exports = function (app) {
             });
         });
     });
+<<<<<<< HEAD
 
     //Load Deeds page
     app.get("/Deed/:id", function (req, res) {
@@ -29,10 +34,13 @@ module.exports = function (app) {
         });
     });
 
+=======
+>>>>>>> eb23ea1549921a11c53f5012f7064eb10d104753
     // Render 404 page for any unmatched routes
     app.get("*", function (req, res) {
         res.render("404");
     });
+<<<<<<< HEAD
 
     // add route loads the add.html page, where users can enter new needs to the db.  
     // Need to find the add page in html to reference therefore the below is incorrect
@@ -40,3 +48,6 @@ module.exports = function (app) {
         res.sendFile(path.join(__dirname, "../public/add.html"));
     });
 };
+=======
+};
+>>>>>>> eb23ea1549921a11c53f5012f7064eb10d104753

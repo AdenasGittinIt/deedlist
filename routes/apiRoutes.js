@@ -3,6 +3,7 @@ var deedlist_db = require("../models");
 module.exports = function(app) {
     // Take people info and send to people table in db
     app.post("/api/people", function(req, res) {
+        console.log(req.body);
         db.People.create(req.body).then(function(deedlist_db) {
             res.json(deedlist_db);
         });
@@ -42,6 +43,7 @@ module.exports = function(app) {
     });
     
     // Get all examples
+<<<<<<< HEAD
     app.get("/api/examples", function(req, res) {
         deedlist_db.Example.findAll({}).then(function(deedlist_dbExamples) {
             res.json(deedlist_dbExamples);
@@ -61,4 +63,25 @@ module.exports = function(app) {
             res.json(deedlist_dbExample);
         });
     });
+=======
+    // app.get("/api/examples", function(req, res) {
+    //     db.Example.findAll({}).then(function(dbExamples) {
+    //         res.json(dbExamples);
+    //     });
+    // });
+
+    // // Create a new example
+    // app.post("/api/examples", function(req, res) {
+    //     db.Example.create(req.body).then(function(dbExample) {
+    //         res.json(dbExample);
+    //     });
+    // });
+
+    // // Delete an example by id
+    // app.delete("/api/examples/:id", function(req, res) {
+    //     db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
+    //         res.json(dbExample);
+    //     });
+    // });
+>>>>>>> eb23ea1549921a11c53f5012f7064eb10d104753
 };
