@@ -103,6 +103,28 @@ var handleDeleteBtnClick = function() {
     });
 };
 
+// dont load this yet
+
+// (function ($) {
+//     $.fn.invisible = function () {
+//       return this.each(function () {
+//         $(this).css("visibility", "hidden");
+//       });
+//     };
+//     $.fn.visible = function () {
+//       return this.each(function () {
+//         $(this).css("visibility", "visible");
+//       });
+//     };
+
+
+$("#needClose").on('click', function(){
+    $('#modal-need').invisible();
+    $('#need2').visible();
+});
+
+
+
 // Add event listeners to the submit and delete buttons
 $(document).ready(function(){
 
@@ -112,7 +134,4 @@ $(document).ready(function(){
     $('.parallax').parallax();
     $('.tap-target').tapTarget();
 });
-$exampleList.on("click", ".delete", handleDeleteBtnClick)
-
-$agreeBtn.on("click", handlePersonSubmit)
 
