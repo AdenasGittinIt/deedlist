@@ -35,7 +35,7 @@
         <br><br>
       </div>
       <a onclick="M.toast({classes:'toastIs', displayLength:8000, html: ' Post a need to create an organized check list your friends and family can access.<br><br> Want to do some good? Click deed to help someone who has posted a need and view their list.'})"
-        class="whatIs">Need Help?</a>
+        class="whatIs">Not sure what to do?</a>
     </div>
   </div>
   <div class="parallax-container">
@@ -54,33 +54,33 @@
         <form class="col s12">
           <div class="row">
             <div class="input-field col s6">
-              <input placeholder="John" id="first_name" type="text" class="validate">
+              <input placeholder="First" id="first_name" type="text" class="validate">
               <label for="first_name">First Name</label>
             </div>
             <div class="input-field col s6">
-              <input id="last_name" type="text" class="validate">
+              <input placeholder="Last" id="last_name" type="text" class="validate">
               <label for="last_name">Last Name</label>
             </div>
           </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="cell" type="email" class="validate">
-          <label for="cell">Cell #</label>
+          <input id="mobile" type="text" class="validate">
+          <label for="mobile">Mobile #</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="zip" type="email" class="validate">
-          <label for="zip">Zipcode</label>
+          <input id="zip_code" type="text" class="validate">
+          <label for="zip_code">Zip code</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
           <select>
             <option value="" disabled selected>Choose your option</option>
-            <option value="1">Public</option>
-            <option value="2">Private</option>
+            <option value="false">Public</option>
+            <option value="true">Private</option>
           </select>
           <label>Select Privacy Type</label>
           <span class="helper-text" data-error="wrong" data-success="right">*Private will not list your need in a
@@ -116,10 +116,10 @@
       <h4>Do a deed!</h4>
       <div class="row">
         <div class="input-field col s12">
-          <input id="deedID" type="email" class="validate">
-          <label for="deedID"></label>
+          <input placeholder="Need #" id="needID" type="text" class="validate">
+          <label for="needID"></label>
         </div>
-        <p>If you have a deed # from a friend or family member enter above, if not press continue</p>
+        <p>Enter a need # in the field above or click continue to see all public needs</p>
       </div>
       <div class="modal-footer">
         <a href="#need2" class="modal-close waves-effect waves-green btn-flat">Continue</a>
