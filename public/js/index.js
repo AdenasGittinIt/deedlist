@@ -3,17 +3,18 @@ var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
+var $agreeBtn = $("#agree")
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-    saveExample: function(example) {
+    savePerson: function(person) {
         return $.ajax({
             headers: {
                 "Content-Type": "application/json"
             },
             type: "POST",
-            url: "api/examples",
-            data: JSON.stringify(example)
+            url: "/api/people",
+            data: JSON.stringify(person)
         });
     },
     getExamples: function() {
@@ -59,22 +60,30 @@ var refreshExamples = function() {
     });
 };
 
-// handleFormSubmit is called whenever we submit a new example
+// handlePersonSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handlePersonSubmit = function(event) {
     event.preventDefault();
+    var first_name = $("#first_name").val().trim();
+    var last_name = $("#last_name").val().trim();
+    var email = $("#email").val().trim();
+    var zip_code = $("#zip_code").val().trim();
+    var private = $("#private").val();
 
-    var example = {
-        text: $exampleText.val().trim(),
-        description: $exampleDescription.val().trim()
-    };
+    var person = {
+        first_name: first_name,
+        last_name: last_name,
+        email: email,
+        zip_code: zip_code,
+        private: private
+    }
 
-    if (!(example.text && example.description)) {
-        alert("You must enter an example text and description!");
+    if (!(first_name && last_name && email && zip_code && private)) {
+        alert("Be sure you have completed all required fields");
         return;
     }
 
-    API.saveExample(example).then(function() {
+    API.savePerson(person).then(function() {
         refreshExamples();
     });
 
@@ -125,3 +134,4 @@ $(document).ready(function(){
     $('.parallax').parallax();
     $('.tap-target').tapTarget();
 });
+
