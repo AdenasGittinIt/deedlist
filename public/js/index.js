@@ -6,14 +6,14 @@ var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-    saveExample: function(example) {
+    savePerson: function(example) {
         return $.ajax({
             headers: {
                 "Content-Type": "application/json"
             },
             type: "POST",
             url: "api/examples",
-            data: JSON.stringify(example)
+            data: JSON.stringify(person)
         });
     },
     getExamples: function() {
@@ -59,22 +59,30 @@ var refreshExamples = function() {
     });
 };
 
-// handleFormSubmit is called whenever we submit a new example
+// handlePeopleSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handlePeopleSubmit = function(event) {
     event.preventDefault();
+    var first_name = $("#first_name").val().trim();
+    var last_name = $("#last_name").val().trim();
+    var cell = $("#cell").val().trim();
+    var zip_code = $("#zip_code").val().trim();
+    var private = $("#private").val();
 
-    var example = {
-        text: $exampleText.val().trim(),
-        description: $exampleDescription.val().trim()
-    };
+    var person = {
+        first_name: first_name,
+        last_name: last_name,
+        cell: cell,
+        zip_code: zip_code,
+        private: private
+    }
 
-    if (!(example.text && example.description)) {
-        alert("You must enter an example text and description!");
+    if (!(first_name && last_name && mobile && zip_code && private)) {
+        alert("All fields are required");
         return;
     }
 
-    API.saveExample(example).then(function() {
+    API.savePerson(person).then(function() {
         refreshExamples();
     });
 
@@ -96,8 +104,16 @@ var handleDeleteBtnClick = function() {
 
 // Add event listeners to the submit and delete buttons
 $(document).ready(function(){
+
+    // materialize js
     $('.modal').modal();
     $('select').formSelect();
+    $('.parallax').parallax();
+    $('.tap-target').tapTarget();
 });
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 $submitBtn.on("click", handleFormSubmit);
+
+
+$submitBtn.on("click", handlePeopleSubmit);
+
