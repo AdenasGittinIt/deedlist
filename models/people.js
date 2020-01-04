@@ -1,5 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
     var People = sequelize.define("People", {
+        uuid: {
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV1,
+            primaryKey:true
+        },
         first_name: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -34,5 +39,12 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
         }
     });
+
+    People.associate = function(models) {
+        People.hasMany(models.Need, {
+            onDelete: "cascade"
+        });
+    };
+
     return People;
 };
