@@ -125,13 +125,18 @@ $("#needClose").on('click', function(){
 
 
 
+
+
 // Add event listeners to the submit and delete buttons
 $(document).ready(function(){
+
+    $('#needForm').invisible();
 
     // materialize js
     $('.modal').modal();
     $('select').formSelect();
     $('.parallax').parallax();
     $('.tap-target').tapTarget();
+    $('select').formSelect();
 });
 

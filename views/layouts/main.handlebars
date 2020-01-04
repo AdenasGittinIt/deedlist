@@ -77,13 +77,8 @@
       </div>
       <div class="row">
         <div class="input-field col s12">
-<<<<<<< HEAD
-          <select>
-            <option value="" disabled selected>Choose your option</option>
-=======
           <select id="private">
             <option value="" disabled selected>Privacy Type</option>
->>>>>>> 85e09d5cce0c2d071264809f9f7771029a2cb0b5
             <option value="false">Public</option>
             <option value="true">Private</option>
           </select>
@@ -92,11 +87,7 @@
             search result. A link will be sent to your email that you can share to your family and friends for your
             need.</span>
           <div class="modal-footer">
-<<<<<<< HEAD
-            <button data-target="need2" class="btn modal-trigger" style="height:42px;">Agree</a>
-=======
-            <a href="#need2" class="modal-close waves-effect waves-green btn-flat" id="agree">Agree</a>
->>>>>>> 85e09d5cce0c2d071264809f9f7771029a2cb0b5
+            <button data-target="need2" class="btn modal-trigger" style="height:42px;" id="agree">Agree</a>
           </div>
         </div>
       </div>
@@ -115,14 +106,25 @@
         <center>Add your Need here</center>
       </h4>
       <div class="input-field col s12">
-        <select>
+        <select id="cat">
           <option value="" disabled selected>Choose One</option>
           <option value="1">Chore</option>
           <option value="2">Errand</option>
           <option value="3">Meals</option>
           <option value="4">Gift</option>
         </select>
-        <label>Please Select Category</label>
+        <label>Please Select Category</label> <br>
+        <div class="row">
+          <div class="input-field col s12">
+            <input placeholder="Need yard work done" id="needTitle" type="text" class="validate">
+            <label for="NeedTitle">Need Title</label>
+          </div> <br>
+          <div class="input-field col s12">
+            <input placeholder="someone with a lawn mower please help an elderly lady" id="needDetails" type="text"
+              class="validate">
+            <label for="needDetails">Details about your need</label>
+          </div>
+        </div>
       </div>
     </div>
     <div class="modal-footer">
