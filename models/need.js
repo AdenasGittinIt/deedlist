@@ -29,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
 
     Need.associate = function(models) {
         Need.belongsTo(models.People, {
-            foreingKey: {
+            foreignKey: {
                 allowNull: false
             }
         });

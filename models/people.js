@@ -1,9 +1,9 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
     var People = sequelize.define("People", {
-        uuid: {
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUIDV1,
-            primaryKey:true
+        id: {
+            allowNull: false,
+            primaryKey: true,
+            type: DataTypes.UUID
         },
         first_name: {
             type: DataTypes.STRING,
@@ -40,7 +40,7 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
 
-    People.associate = function(models) {
+    People.associate = function (models) {
         People.hasMany(models.Need, {
             onDelete: "cascade"
         });
