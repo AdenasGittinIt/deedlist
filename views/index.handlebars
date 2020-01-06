@@ -1,33 +1,169 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
+{{!-- PARALLAX --}}
+<div class=" parallax-container">
+  <div class="parallax"><img src="/styles/assets/logo.png"></div>
+</div>
+<div class="section white">
+  <div class="row container">
+    <div class="modalButton">
+      {{!-- Need Modal trigger --}}
+      <a class="waves-effect waves-light btn modal-trigger" href="#modal-need"><br>Need?</a>
+      {{!-- Deed Modal trigger --}}
+      <a class="waves-effect waves-light btn modal-trigger" href="#modal-deed"><br>Deed!</a>
+      <br><br>
     </div>
+    <a onclick="M.toast({classes:'toastIs', displayLength:8000, html: ' Post a need to create an organized check list your friends and family can access.<br><br> Want to do some good? Click deed to help someone who has posted a need and view their list.'})"
+      class="whatIs">Not sure what to do?</a>
+  </div>
+</div>
+<div class="parallax-container">
+  <div class="parallax"><img src="/styles/assets/para2.png">
   </div>
 </div>
 
+
+<!-- Modal Structure -->
+
+{{!-- Need Modal Form --}}
+<div id="modal-need" class="modal">
+  <div class="modal-content">
+    <h4>Let's get some info first</h4>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="First" id="first_name" type="text" class="validate">
+            <label for="first_name">First Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input placeholder="Last" id="last_name" type="text" class="validate">
+            <label for="last_name">Last Name</label>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="email" type="email" class="validate">
+        <label for="email">Email</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="zip_code" type="text" class="validate">
+        <label for="zip_code">Zip Code</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <select id="private">
+          <option value="" disabled selected>Privacy Type</option>
+          <option value="false">Public</option>
+          <option value="true">Private</option>
+        </select>
+        <label>Select Privacy Type</label>
+        <span class="helper-text" data-error="wrong" data-success="right">*Private will not list your need in a
+          search result. A link will be sent to your email that you can share to your family and friends for your
+          need.</span>
+        <div class="modal-footer">
+          <button data-target="need2" class="btn modal-trigger" style="height:42px;" id="agree">Agree</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Need Add Structure -->
+<div id="need2" class="modal">
+  <div class="modal-content">
+    <h4>
+      <center>Add your Need here</center>
+    </h4>
+    <div class="input-field col s12">
+      <select id="cat">
+        <option value="" disabled selected>Choose One</option>
+        <option value="1">Chore</option>
+        <option value="2">Errand</option>
+        <option value="3">Meals</option>
+        <option value="4">Gift</option>
+      </select>
+      <label>Please Select Category</label> <br>
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Need yard work done" id="needTitle" type="text" class="validate">
+          <label for="NeedTitle">Need Title</label>
+        </div> <br>
+        <div class="input-field col s12">
+          <input placeholder="someone with a lawn mower please help an elderly lady" id="needDetails" type="text"
+            class="validate">
+          <label for="needDetails">Details about your need</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="/home" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+</div>
+
+{{!-- Deed Modal Form --}}
+<div id="modal-deed" class="modal">
+  <div class="modal-content">
+    <h4>Do a deed!</h4>
+    <div class="row">
+      <div class="input-field col s12">
+        <input placeholder="Need #" id="needID" type="text" class="validate">
+        <label for="needID"></label>
+      </div>
+      <p>Enter a need # in the field above or click continue to see all public needs</p>
+    </div>
+    <div class="modal-footer">
+      <a href="/home" class="modal-close waves-effect waves-green btn-flat">Continue</a>
+    </div>
+  </div>
+  <br><br>
+</div>
+
+{{!-- Footer --}}
+<footer class="page-footer blue-grey lighten-3">
+  <div class="container">
+    <div class="row blue-grey lighten-3">
+      <div class="col s12">
+        <!-- Modal Trigger -->
+        <a class="waves-effect waves-light btn modal-trigger" style="padding: 16px;" href="/#tos">terms</a>
+      </div>
+    </div>
+    <div class="col l4 offset-l8 s12" style="text-align:end;">
+      <h5 class="white-text">Created By</h5>
+      <ul>
+        <li><a class="grey-text text-lighten-3" href="#!">Adena McGibbon<img src="/styles/assets/github.png"
+              style="margin-left:12px;"></a>
+          </a></li>
+        <li><a class="grey-text text-lighten-3" href="#!">Richard Germaine<img src="/styles/assets/github.png"
+              style="margin-left:12px;"></a>
+        </li>
+        <li><a class="grey-text text-lighten-3" href="#!">Miana Kassis<img src="/styles/assets/github.png"
+              style="margin-left:12px;"></a></a></li>
+        <li><a class="grey-text text-lighten-3" href="#!">Carina Ullman<img src="/styles/assets/github.png"
+              style="margin-left:12px;"></a></a></li>
+      </ul>
+    </div>
+  </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2020 Copyright
+      <a class="grey-text text-lighten-4 right" href="https://github.com/AdenasGittinIt/deedlist">Check out our repo
+        on
+        gitHub<img src="/styles/assets/gitrepo.png"></a>
+    </div>
+  </div>
+</footer>
+
+<!--JavaScript at end of body for optimized loading-->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<script type="text/javascript" src="/js/materialize.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
