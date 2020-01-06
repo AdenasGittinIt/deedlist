@@ -17,17 +17,35 @@ var API = {
             data: JSON.stringify(person)
         });
     },
-    getExamples: function() {
+    getPublicNeeds: function() {
         return $.ajax({
-            url: "api/examples",
+            url: "api/needs/public",
+            type: "GET"
+        });
+    },    
+    
+    getPrivateNeeds: function() {
+        return $.ajax({
+            url: "api/needs/:id",
             type: "GET"
         });
     },
-    deleteExample: function(id) {
+    
+    claimNeed: function(id) {
         return $.ajax({
-            url: "api/examples/" + id,
-            type: "DELETE"
+            url: "api/need/" + id,
+            type: "POST"
         });
+    },
+    saveNeed: function(need) {
+        return $.ajax({
+            headers: {
+                "Content-Type": "application/json"
+            },
+            type: "POST",
+            url: "/api/people",
+            data: JSON.stringify(need)
+        })
     }
 };
 
@@ -84,40 +102,65 @@ var handlePersonSubmit = function(event) {
     }
 
     API.savePerson(person).then(function() {
-        refreshExamples();
-    });
+        // Need function to clear the modal inputs
 
-    $exampleText.val("");
-    $exampleDescription.val("");
+    });
 };
 
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-    var idToDelete = $(this)
+handleNeedSubmit = function(event) {
+    event.preventDefault();
+    var title = $("#title").val().trim();
+    var category = $("#category").val().trim();
+    var details = $("#details").val().trim();
+
+    var need = {
+    title: title,
+    category: category,
+    details: details,
+    }
+
+    if (!(title && category && details)) {
+        alert("Be sure you have completed all required fields");
+        return;
+    }
+
+    API.saveNeed(need).then(function() {
+        //need function to clear the need form inputs
+    })
+}
+
+
+
+
+
+
+
+// handleClaimBtnClick is called when an example's claim button is clicked
+// Change the status from available to claimed from the db and refresh the list
+var handleClaimBtnClick = function() {
+    var idToClaim = $(this)
         .parent()
         .attr("data-id");
-
-    API.deleteExample(idToDelete).then(function() {
-        refreshExamples();
+    API.claimNeed(idToClaim).then(function() {
+        refreshNeeds();
     });
 };
 
 // dont load this yet
 
-// (function ($) {
-//     $.fn.invisible = function () {
-//       return this.each(function () {
-//         $(this).css("visibility", "hidden");
-//       });
-//     };
-//     $.fn.visible = function () {
-//       return this.each(function () {
-//         $(this).css("visibility", "visible");
-//       });
-//     };
+(function ($) {
+    $.fn.invisible = function () {
+        return this.each(function () {
+            $(this).css("visibility", "hidden");
+        });
+    };
+    $.fn.visible = function () {
+        return this.each(function () {
+            $(this).css("visibility", "visible");
+        });
+    };
 
-
+}(jQuery))
 $("#needClose").on('click', function(){
     $('#modal-need').invisible();
     $('#need2').visible();
@@ -125,13 +168,27 @@ $("#needClose").on('click', function(){
 
 
 
+
+
 // Add event listeners to the submit and delete buttons
 $(document).ready(function(){
+
+    $('#needForm').invisible();
 
     // materialize js
     $('.modal').modal();
     $('select').formSelect();
     $('.parallax').parallax();
     $('.tap-target').tapTarget();
+    $('select').formSelect();
+    $('.sidenav').sidenav();
+    $('.collapsible').collapsible();
 });
+$exampleList.on("click", ".delete", handleClaimBtnClick)
+
+//This click function sends the person payload to the server
+$agreeBtn.on("click", handlePersonSubmit)
+
+//this click function sends a get request to dispay all public needs
+$continueBtn.on("click", getPublicNeeds)
 

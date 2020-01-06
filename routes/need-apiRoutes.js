@@ -3,25 +3,26 @@ var db = require("../models");
 module.exports = function(app) {
     // Take new need info and save in need table in db
     app.post("/api/needs", function(req, res) {
+        console.log(req.body);
         db.Need.create(req.body).then(function(deedlist_db) {
             res.json(deedlist_db);
         });
     });
 
-    // app.post("/api/needs/test", function(req, res) {
-    //     db.People.findOne({
-    //         where: {
-    //             email: email from req.body
-    //         }
-    //     }).then(function(user) {
-    //         db.Need.create({
-    //             PersonId: user.Id
-    //         }).then(function(deedlist_db) {
-    //             res.json(deedlist_db);
-    //         });
-    //     })
+    app.post("/api/needs/test", function(req, res) {
+        db.People.findOne({
+            where: {
+                email: email
+            }
+        }).then(function(user) {
+            db.Need.create({
+                PersonId: user.Id
+            }).then(function(deedlist_db) {
+                res.json(deedlist_db);
+            });
+        })
         
-    // });
+    });
 
 
     // Send URL and ID# to client, not sure how to do this or where it will go 

@@ -2,6 +2,7 @@
 /node_modules
 /npm-debug.log
 /config/config.json
-.env
 .package-lock.json
+.env
 package-lock.json
+scratchpad.js 
