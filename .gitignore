@@ -1,8 +1,8 @@
 .DS_Store
 /node_modules
 /npm-debug.log
-.env
+/config/config.json
 .package-lock.json
+.env
 package-lock.json
-config.json
 scratchpad.js 

@@ -105,19 +105,19 @@ var handleDeleteBtnClick = function() {
 
 // dont load this yet
 
-// (function ($) {
-//     $.fn.invisible = function () {
-//       return this.each(function () {
-//         $(this).css("visibility", "hidden");
-//       });
-//     };
-//     $.fn.visible = function () {
-//       return this.each(function () {
-//         $(this).css("visibility", "visible");
-//       });
-//     };
+(function ($) {
+    $.fn.invisible = function () {
+        return this.each(function () {
+            $(this).css("visibility", "hidden");
+        });
+    };
+    $.fn.visible = function () {
+        return this.each(function () {
+            $(this).css("visibility", "visible");
+        });
+    };
 
-
+}(jQuery))
 $("#needClose").on('click', function(){
     $('#modal-need').invisible();
     $('#need2').visible();
@@ -125,13 +125,18 @@ $("#needClose").on('click', function(){
 
 
 
+
+
 // Add event listeners to the submit and delete buttons
 $(document).ready(function(){
+
+    $('#needForm').invisible();
 
     // materialize js
     $('.modal').modal();
     $('select').formSelect();
     $('.parallax').parallax();
     $('.tap-target').tapTarget();
+    $('select').formSelect();
 });
 
