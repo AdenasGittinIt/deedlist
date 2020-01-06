@@ -21,19 +21,10 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1, 250]
             }
         },
-        status: {
+        status: {  
             type: DataTypes.BOOLEAN,
             defaultValue: true
         }
     });
-
-    Need.associate = function(models) {
-        Need.belongsTo(models.People, {
-            foreingKey: {
-                allowNull: false
-            }
-        });
-    };
-    
     return Need;
 };
