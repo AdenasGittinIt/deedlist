@@ -21,12 +21,12 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1, 250]
             }
         },
-        status: {
+        status: {  
             type: DataTypes.BOOLEAN,
             defaultValue: true
         }
     });
-
+  
     Need.associate = function(models) {
         Need.belongsTo(models.People, {
             foreignKey: {
@@ -34,6 +34,3 @@ module.exports = function(sequelize, DataTypes) {
             }
         });
     };
-    
-    return Need;
-};

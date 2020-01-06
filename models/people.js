@@ -1,5 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
     var People = sequelize.define("People", {
+
         id: {
             allowNull: false,
             primaryKey: true,
@@ -40,11 +41,11 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
+
     People.associate = function (models) {
         People.hasMany(models.Need, {
             onDelete: "cascade"
         });
     };
-
     return People;
 };
