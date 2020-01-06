@@ -5,6 +5,8 @@ require("dotenv").config();
 
 var express = require("express");
 
+var path = require("path");
+
 var exphbs = require("express-handlebars");
 
 var db = require("./models");
