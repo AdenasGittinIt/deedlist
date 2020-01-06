@@ -1,4 +1,3 @@
-var uuid = require('uuid/v4');
 var db = require("../models");
 
 module.exports = function (app) {
@@ -47,5 +46,4 @@ module.exports = function (app) {
             res.json(deedlist_db);
         });
     });
-
 }
