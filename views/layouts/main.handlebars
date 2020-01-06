@@ -49,7 +49,7 @@
   {{!-- Need Modal Form --}}
   <div id="modal-need" class="modal">
     <div class="modal-content">
-      <h4>Need Help?</h4>
+      <h4>Need Help? Let's get some info first</h4>
       <div class="row">
         <form class="col s12">
           <div class="row">
@@ -87,7 +87,7 @@
             search result. A link will be sent to your email that you can share to your family and friends for your
             need.</span>
           <div class="modal-footer">
-            <a href="#need2" class="modal-close waves-effect waves-green btn-flat" id="agree">Agree</a>
+            <button data-target="need2" class="btn modal-trigger" style="height:42px;" id="agree">Agree</a>
           </div>
         </div>
       </div>
@@ -99,14 +99,36 @@
   </div>
 
 
-  <!-- Modal Structure -->
+  <!-- Need Add Structure -->
   <div id="need2" class="modal">
     <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
+      <h4>
+        <center>Add your Need here</center>
+      </h4>
+      <div class="input-field col s12">
+        <select id="cat">
+          <option value="" disabled selected>Choose One</option>
+          <option value="1">Chore</option>
+          <option value="2">Errand</option>
+          <option value="3">Meals</option>
+          <option value="4">Gift</option>
+        </select>
+        <label>Please Select Category</label> <br>
+        <div class="row">
+          <div class="input-field col s12">
+            <input placeholder="Need yard work done" id="needTitle" type="text" class="validate">
+            <label for="NeedTitle">Need Title</label>
+          </div> <br>
+          <div class="input-field col s12">
+            <input placeholder="someone with a lawn mower please help an elderly lady" id="needDetails" type="text"
+              class="validate">
+            <label for="needDetails">Details about your need</label>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+      <a href="/index" class="modal-close waves-effect waves-green btn-flat">Agree</a>
     </div>
   </div>
 
@@ -122,7 +144,7 @@
         <p>Enter a need # in the field above or click continue to see all public needs</p>
       </div>
       <div class="modal-footer">
-        <a href="#need2" class="modal-close waves-effect waves-green btn-flat" id="continue">Continue</a>
+        <a href="/index" class="modal-close waves-effect waves-green btn-flat">Continue</a>
       </div>
     </div>
     <br><br>
