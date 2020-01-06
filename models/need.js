@@ -26,11 +26,5 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: true
         }
     });
-  
-    Need.associate = function(models) {
-        Need.belongsTo(models.People, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
-    };
+    return Need;
+};
