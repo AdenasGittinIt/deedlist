@@ -10,6 +10,7 @@ module.exports = function(app) {
         });
     });
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     app.get("/home", function(req, res) {
         db.Need.findAll({}).then(function(dbNeed) {
@@ -29,6 +30,8 @@ module.exports = function(app) {
         });
     });
 
+=======
+>>>>>>> 1d3d00bc3889516dedd08b010a4884b2095763f9
 =======
 >>>>>>> 1d3d00bc3889516dedd08b010a4884b2095763f9
     // Load Need page and pass in an Need by id
