@@ -4,4 +4,5 @@
 /config/config.json
 .package-lock.json
 .env
-.package-lock.json
+package-lock.json
+scratchpad.js 
