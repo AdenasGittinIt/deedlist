@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
     var Need = sequelize.define("Need", {
         title: {
             type: DataTypes.STRING,
@@ -21,10 +21,11 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1, 250]
             }
         },
-        status: {  
+        status: {
             type: DataTypes.BOOLEAN,
             defaultValue: true
         }
     });
+    console.log("WOOP WOOP");
     return Need;
 };
