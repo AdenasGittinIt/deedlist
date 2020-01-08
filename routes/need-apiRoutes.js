@@ -9,20 +9,62 @@ module.exports = function(app) {
         });
     });
 
-    app.post("/api/needs/test", function(req, res) {
-        db.People.findOne({
+    // GET route to display needs entered by need person
+
+
+    // GET route to view public needs where status is true
+
+    app.get("/api/needs/:status", function(req, res) {
+        db.Need.findAll({
             where: {
-                email: email
+                status: false
             }
-        }).then(function(user) {
-            db.Need.create({
-                PersonId: user.Id
-            }).then(function(deedlist_db) {
-                res.json(deedlist_db);
-            });
-        })
-        
+        }).then(function(deedlist_db) {
+            res.json(deedlist_db)
+        });
     });
+    // PUT route for updating status of need after it is claimed
+
+    app.put("/api/needs", function(req, res) {
+        db.Need.update(
+            req.body,
+            {
+                where: {
+                    id: req.body.id
+                }
+            }).then(function(deedlist_db) {
+                res.json(deedlist_db)
+            });
+    });
+
+    // GET route to display private needs using id#
+
+    app.get("/api/needs/:PersonUuid", function(req, res) {
+        db.Need.findAll({
+            where: {
+                PersonUuid: req.params.PersonUuid
+            },
+            include: [db.People]
+        }).then(function(deedlist_db) {
+            res.json(deedlist_db)
+        });
+    });
+
+
+    // app.post("/api/needs/test", function(req, res) {
+    //     db.People.findOne({
+    //         where: {
+    //             email: email
+    //         }
+    //     }).then(function(user) {
+    //         db.Need.create({
+    //             PersonId: user.Id
+    //         }).then(function(deedlist_db) {
+    //             res.json(deedlist_db);
+    //         });
+    //     })
+        
+    // }); 
 
 
     // Send URL and ID# to client, not sure how to do this or where it will go 
@@ -63,6 +105,7 @@ module.exports = function(app) {
     //     });
     // });
 }
+
 // These were the api routes that were givin to us in starter code
 
 
