@@ -98,6 +98,7 @@ var handlePersonSubmit = function(event) {
 
     if (!(first_name && last_name && email && zip_code && private)) {
         alert("Be sure you have completed all required fields");
+        //the need modal is still gets triggered after this alert
         return;
     }
 
