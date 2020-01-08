@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "null",
+    "password": "root",
     "database": "deedlist_db",
     "host": "localhost",
     "dialect": "mysql"
