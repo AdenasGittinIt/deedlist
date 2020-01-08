@@ -2,17 +2,21 @@
 <div class=" parallax-container">
   <div class="parallax"><img src="/styles/assets/logo.png"></div>
 </div>
-<div class="section white">
+<div class="section white z-depth-3">
   <div class="row container">
     <div class="modalButton">
       {{!-- Need Modal trigger --}}
-      <a class="waves-effect waves-light btn modal-trigger" href="#modal-need"><br>Need?</a>
+      <a class="waves-effect waves-light btn modal-trigger tooltipped" data-position="left"
+        data-tooltip="Post a need to create an organized check list your friends and family can access."
+        href="#modal-email"><br>Need?</a>
+
       {{!-- Deed Modal trigger --}}
-      <a class="waves-effect waves-light btn modal-trigger" href="#modal-deed"><br>Deed!</a>
+      <a class="waves-effect waves-light btn modal-trigger tooltipped" data-position="right"
+        data-tooltip="Want to do some good? <br> Click deed to help someone who has posted a need and view their list."
+        href="#modal-deed"><br>Deed!</a>
       <br><br>
     </div>
-    <a onclick="M.toast({classes:'toastIs', displayLength:8000, html: ' Post a need to create an organized check list your friends and family can access.<br><br> Want to do some good? Click deed to help someone who has posted a need and view their list.'})"
-      class="whatIs">Not sure what to do?</a>
+
   </div>
 </div>
 <div class="parallax-container">
@@ -23,54 +27,71 @@
 
 <!-- Modal Structure -->
 
-{{!-- Need Modal Form --}}
-<div id="modal-need" class="modal">
+{{!-- Email Modal --}}
+
+<div id="modal-email" class="modal">
   <div class="modal-content">
-    <h4>Let's get some info first</h4>
     <div class="row">
       <form class="col s12">
-        <div class="row">
-          <div class="input-field col s6">
-            <input placeholder="First" id="first_name" type="text" class="validate">
-            <label for="first_name">First Name</label>
-          </div>
-          <div class="input-field col s6">
-            <input placeholder="Last" id="last_name" type="text" class="validate">
-            <label for="last_name">Last Name</label>
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Enter Email Here</label>
+          <div class="modal-footer">
+            <button data-target="modal-need" class="btn-sml modal-trigger">Continue</button>
           </div>
         </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="email" type="email" class="validate">
-        <label for="email">Email</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="zip_code" type="text" class="validate">
-        <label for="zip_code">Zip Code</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <select id="private">
-          <option value="" disabled selected>Privacy Type</option>
-          <option value="false">Public</option>
-          <option value="true">Private</option>
-        </select>
-        <label>Select Privacy Type</label>
-        <span class="helper-text" data-error="wrong" data-success="right">*Private will not list your need in a
-          search result. A link will be sent to your email that you can share to your family and friends for your
-          need.</span>
-        <div class="modal-footer">
-          <button data-target="need2" class="btn modal-trigger" style="height:42px;" id="agree">Agree</a>
-        </div>
-      </div>
+      </form>
     </div>
   </div>
-  </form>
-</div>
+
+  {{!-- Need Modal Form --}}
+  <div id="modal-need" class="modal">
+    <div class="modal-content">
+      <h4>Let's get some info first</h4>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input placeholder="First" id="first_name" type="text" class="validate">
+              <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input placeholder="Last" id="last_name" type="text" class="validate">
+              <label for="last_name">Last Name</label>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="zip_code" type="text" class="validate">
+          <label for="zip_code">Zip Code</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <select id="private">
+            <option value="" disabled selected>Privacy Type</option>
+            <option value="false">Public</option>
+            <option value="true">Private</option>
+          </select>
+          <label>Select Privacy Type</label>
+          <span class="helper-text" data-error="wrong" data-success="right">*Private will not list your need in a
+            search result. A link will be sent to your email that you can share to your family and friends for your
+            need.</span>
+          <div class="modal-footer">
+            <button data-target="need2" class="btn modal-trigger" style="height:42px;" id="agree">Agree</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
+  </div>
 </div>
 </div>
 </div>

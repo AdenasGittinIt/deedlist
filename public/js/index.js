@@ -3,7 +3,7 @@ var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
-var $agreeBtn = $("#agree")
+var $agreeBtn = $("#agree");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -101,9 +101,9 @@ var handlePersonSubmit = function(event) {
         return;
     }
 
-    API.savePerson(person).then(function() {
+    API.savePerson(person).then(function(res) {
         // Need function to clear the modal inputs
-
+        console.log(res);
     });
 };
 
@@ -121,19 +121,15 @@ handleNeedSubmit = function(event) {
 
     if (!(title && category && details)) {
         alert("Be sure you have completed all required fields");
+        
         return;
     }
 
     API.saveNeed(need).then(function() {
         //need function to clear the need form inputs
+
     })
 }
-
-
-
-
-
-
 
 // handleClaimBtnClick is called when an example's claim button is clicked
 // Change the status from available to claimed from the db and refresh the list
@@ -166,10 +162,6 @@ $("#needClose").on('click', function(){
     $('#need2').visible();
 });
 
-
-
-
-
 // Add event listeners to the submit and delete buttons
 $(document).ready(function(){
 
@@ -183,6 +175,7 @@ $(document).ready(function(){
     $('select').formSelect();
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
+    $('.tooltipped').tooltip();
 });
 $exampleList.on("click", ".delete", handleClaimBtnClick)
 
@@ -191,4 +184,3 @@ $agreeBtn.on("click", handlePersonSubmit)
 
 //this click function sends a get request to dispay all public needs
 $continueBtn.on("click", getPublicNeeds)
-
