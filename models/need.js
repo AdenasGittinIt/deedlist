@@ -26,6 +26,18 @@ module.exports = function (sequelize, DataTypes) {
             defaultValue: true
         }
     });
+<<<<<<< HEAD
     console.log("WOOP WOOP");
+=======
+
+    // Need.associate = function(models) {
+    //     Need.belongsTo(models.People, {
+    //         foreignKey: {
+    //             allowNull: false
+    //         }
+    //     });
+    // };
+
+>>>>>>> e7099ea436a8286dfd4bc1b8f1a5900ca7bb0506
     return Need;
 };

@@ -24,6 +24,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             validate: {
                 len: [1, 50]
+                //must be unique?
             }
         },
         zip_code: {
@@ -43,7 +44,7 @@ module.exports = function(sequelize, DataTypes) {
 
     // People.associate = function(models) {
     //     People.hasMany(models.Need, {
-    //         onDelete: "cascade"
+    //         // onDelete: "cascade"
     //     });
     // };
 

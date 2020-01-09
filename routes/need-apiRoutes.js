@@ -8,6 +8,123 @@ module.exports = function(app) {
             res.json(deedlist_db);
         });
     });
+<<<<<<< HEAD
+=======
+
+    // GET route to view public needs where status is true
+
+    // GET route to display needs entered by need person
+    
+    // GET route to check if email exists
+    app.get("/api/people/:email", function(req, res) {
+        db.People.findAll({
+            where: {
+                email: req.params.email
+            },
+        }).then(function(deedlist_db) {
+            res.json(deedlist_db)
+        }).then(function(result) {
+            if (!result.length) {
+                res.status(404).end();
+            }
+        });
+    });
+
+    // GET route to view needs where status is true (not claimed yet)
+    // don't really need this but it is working, save as example
+
+    app.get("/api/needs/:status", function(req, res) {
+        db.Need.findAll({
+            where: {
+                status: false
+            }
+        }).then(function(deedlist_db) {
+            res.json(deedlist_db)
+        });
+    });
+
+    // PUT route for updating status of need after it is claimed
+
+    app.put("/api/needs/:status", function(req, res) {
+        db.Need.update(
+            req.body,
+            {
+                where: {
+                    status: req.body.status
+                }
+            }).then(function(deedlist_db) {
+                res.json(deedlist_db)
+            });
+    });
+
+    // GET route to display private needs using id#
+
+    app.get("/api/needs/:PersonId", function(req, res) {
+        db.Need.findAll({
+            where: {
+                PersonId: req.params.PersonId
+            },
+            include: [db.People]
+        }).then(function(deedlist_db) {
+            res.json(deedlist_db)
+        });
+    });
+
+
+    // app.post("/api/needs/test", function(req, res) {
+    //     db.People.findOne({
+    //         where: {
+    //             email: email
+    //         }
+    //     }).then(function(user) {
+    //         db.Need.create({
+    //             PersonId: user.Id
+    //         }).then(function(deedlist_db) {
+    //             res.json(deedlist_db);
+    //         });
+    //     })
+        
+    // }); 
+
+
+    // Send URL and ID# to client, not sure how to do this or where it will go 
+
+    // Get all needs for person entering needs
+    // app.get("/api/needs/:id", function(req, res) {
+    //     db.Need.findAll({
+    //         where: {
+    //             id: req.params.id
+    //         },
+    //         include: [db.People]
+    //     }).then(function(deedlist_db) {
+    //         res.json(deedlist_db);
+    //     });
+    // });
+
+    // Get all public needs
+    // app.get("/api/needs", function(req, res) {
+    //     db.Need.findAll({
+    //         where: {
+                
+    //         }
+    //     }).then(function(dbExamples) {
+    //         res.json(dbExamples);
+    //     });
+    // });
+
+    // Get needs using ID
+
+    // Delete route for needs that are claimed
+    // app.delete("/api/needs/:id", function(req, res) {
+    //     db.Need.destroy({ 
+    //         where: { 
+    //             id: req.params.id 
+    //         }
+    //     }).then(function(deedlist_db) {
+    //         res.json(deedlist_db);
+    //     });
+    // });
+>>>>>>> e7099ea436a8286dfd4bc1b8f1a5900ca7bb0506
 }
 //     app.post("/api/needs/test", function(req, res) {
 //         db.People.findOne({
