@@ -4,14 +4,11 @@ module.exports = function(app) {
     // Take new need info and save in need table in db
     console.log("needs route imported")
     app.post("/api/needs", function(req, res) {
-        console.log("HEY YOU");
-        console.log(req.body)
         db.Need.create(req.body).then(function(deedlist_db) {
             res.json(deedlist_db);
         });
     });
 }
-console.log ("ARE WE THERE YET?");
 //     app.post("/api/needs/test", function(req, res) {
 //         db.People.findOne({
 //             where: {
