@@ -4,6 +4,8 @@ var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 var $agreeBtn = $("#agree")
+var $continueBtn = $("to-needs")
+
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -17,16 +19,28 @@ var API = {
             data: JSON.stringify(person)
         });
     },
+
+    getEmail: function(email) {
+        return $.ajax({
+            headers:{
+                "Content-Type": "application/json"
+            },
+            type: "GET",
+            url: "/api/email",
+            data: JSON.stringify(email)
+        })
+    },
+
     getPublicNeeds: function() {
         return $.ajax({
-            url: "api/needs/public",
+            url: "api/needs/...",
             type: "GET"
         });
     },    
     
     getPrivateNeeds: function() {
         return $.ajax({
-            url: "api/needs/:id",
+            url: "api/needs/"+id,
             type: "GET"
         });
     },
@@ -50,9 +64,9 @@ var API = {
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-    API.getExamples().then(function(data) {
-        var $examples = data.map(function(example) {
+var refreshNeeds = function() {
+    API.getNeeds().then(function(data) {
+        var $needs = data.map(function(example) {
             var $a = $("<a>")
                 .text(example.text)
                 .attr("href", "/example/" + example.id);
@@ -73,8 +87,8 @@ var refreshExamples = function() {
             return $li;
         });
 
-        $exampleList.empty();
-        $exampleList.append($examples);
+        $needsList.empty();
+        $needsList.append($needs);
     });
 };
 
@@ -101,11 +115,15 @@ var handlePersonSubmit = function(event) {
         return;
     }
 
-    API.savePerson(person).then(function() {
-        // Need function to clear the modal inputs
-
+    API.savePerson(person).then(function(res) {
+        console.log(res.id);
+        var personID = JSON.parse(res.id);
+        return personID;
     });
 };
+
+//added step to enter email address
+
 
 handleNeedSubmit = function(event) {
     event.preventDefault();
