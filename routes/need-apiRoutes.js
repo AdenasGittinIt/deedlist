@@ -8,8 +8,6 @@ module.exports = function(app) {
             res.json(deedlist_db);
         });
     });
-<<<<<<< HEAD
-=======
 
     // GET route to view public needs where status is true
     // app.get("api/needs/:status", function(req, res) {
@@ -127,7 +125,6 @@ module.exports = function(app) {
     //         res.json(deedlist_db);
     //     });
     // });
->>>>>>> e7099ea436a8286dfd4bc1b8f1a5900ca7bb0506
 }
 //     app.post("/api/needs/test", function(req, res) {
 //         db.People.findOne({
