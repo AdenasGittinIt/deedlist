@@ -28,24 +28,21 @@ module.exports = function(app) {
     // would this be the same as GET route for person by id#?
     
     // GET route to check if email exists
-    // app.get("/api/people/:email", function(req, res) {
-    //     db.People.findAll({
-    //         where: {
-    //             email: req.params.email
-    //         },
-    //     }).then(function(deedlist_db) {
-    //         res.json(deedlist_db)
-    //     }).then(function(result) {
-    //         if (!result.length) {
-    //             res.status(404).end();
-    //         }
-    //     });
-    // });
+    app.get("/api/people/:email", function(req, res) {
+        db.People.findOne({
+            where: {
+                email: req.params.email
+            },
+        }).then(function(deedlist_db) {
+            console.log(deedlist_db)
+            res.json(deedlist_db)
+        });
+    });
 
     // GET route to view needs where status is true (not claimed yet)
     // don't really need this but it is working, save as example
 
-    app.get("/api/needs/:status", function(req, res) {
+    app.get("/api/needs/:claimed", function(req, res) {
         db.Need.findAll({
             where: {
                 status: false
@@ -58,16 +55,16 @@ module.exports = function(app) {
     // PUT route for updating status of need after it is claimed
     //Destroy!!!!
 
-    // app.delete("/api/needs/:status", function(req, res) {
-    //     db.Need.destroy(
-    //         {
-    //             where: {
-    //                 status: req.body.status
-    //             }
-    //         }).then(function(deedlist_db) {
-    //             res.json(deedlist_db)
-    //         });
-    // });
+    app.put("/api/needs/:claimed", function(req, res) {
+        db.Need.update(
+            {
+                where: {
+                    status: req.body.status
+                }
+            }).then(function(deedlist_db) {
+                res.json(deedlist_db)
+            });
+    });
 
     // GET route to display private needs using id#
 
