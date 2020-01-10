@@ -22,6 +22,7 @@ module.exports = function(sequelize, DataTypes) {
         email: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
             validate: {
                 len: [1, 50]
             }
@@ -41,11 +42,11 @@ module.exports = function(sequelize, DataTypes) {
     });
 
 
-    People.associate = function(models) {
-        People.hasMany(models.Need, {
-            onDelete: "cascade"
-        });
-    };
+    // People.associate = function(models) {
+    //     People.hasMany(models.Need, {
+    //         onDelete: "cascade"
+    //     });
+    // };
 
 
 
