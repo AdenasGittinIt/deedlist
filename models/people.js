@@ -41,11 +41,11 @@ module.exports = function(sequelize, DataTypes) {
     });
 
 
-    // People.associate = function(models) {
-    //     People.hasMany(models.Need, {
-    //         onDelete: "cascade"
-    //     });
-    // };
+    People.associate = function(models) {
+        People.hasMany(models.Need, {
+            onDelete: "cascade"
+        });
+    };
 
 
 
