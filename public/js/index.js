@@ -157,6 +157,10 @@ var handleClaimBtnClick = function() {
     };
 
 }(jQuery))
+$("#emailModal").on('click', function(){
+    $('#emailModal').invisible();
+    $('#modal-need').visible();
+})
 $("#needClose").on('click', function(){
     $('#modal-need').invisible();
     $('#need2').visible();
@@ -176,6 +180,7 @@ $(document).ready(function(){
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
     $('.tooltipped').tooltip();
+    $('.fixed-action-btn').floatingActionButton();
 });
 $exampleList.on("click", ".delete", handleClaimBtnClick)
 
@@ -184,3 +189,4 @@ $agreeBtn.on("click", handlePersonSubmit)
 
 //this click function sends a get request to dispay all public needs
 $continueBtn.on("click", getPublicNeeds)
+
