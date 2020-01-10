@@ -9,10 +9,41 @@ module.exports = function(app) {
         });
     });
 
-    // GET route to display needs entered by need person
-
-
     // GET route to view public needs where status is true
+    // app.get("api/needs/:status", function(req, res) {
+    //     db.Need.findAll({
+    //         where: {
+    //             status: req.params.status
+    //         },
+    //         include: [{
+    //             model: models.People,
+    //             private: 0
+    //         }]
+    //     }).then(function(deedlist_db) {
+    //         res.json(deedlist_db);
+    //     });
+    // });
+
+    // GET route to display needs entered by need person
+    // would this be the same as GET route for person by id#?
+    
+    // GET route to check if email exists
+    // app.get("/api/people/:email", function(req, res) {
+    //     db.People.findAll({
+    //         where: {
+    //             email: req.params.email
+    //         },
+    //     }).then(function(deedlist_db) {
+    //         res.json(deedlist_db)
+    //     }).then(function(result) {
+    //         if (!result.length) {
+    //             res.status(404).end();
+    //         }
+    //     });
+    // });
+
+    // GET route to view needs where status is true (not claimed yet)
+    // don't really need this but it is working, save as example
 
     app.get("/api/needs/:status", function(req, res) {
         db.Need.findAll({
@@ -23,26 +54,27 @@ module.exports = function(app) {
             res.json(deedlist_db)
         });
     });
-    // PUT route for updating status of need after it is claimed
 
-    app.put("/api/needs", function(req, res) {
-        db.Need.update(
-            req.body,
-            {
-                where: {
-                    id: req.body.id
-                }
-            }).then(function(deedlist_db) {
-                res.json(deedlist_db)
-            });
-    });
+    // PUT route for updating status of need after it is claimed
+    //Destroy!!!!
+
+    // app.delete("/api/needs/:status", function(req, res) {
+    //     db.Need.destroy(
+    //         {
+    //             where: {
+    //                 status: req.body.status
+    //             }
+    //         }).then(function(deedlist_db) {
+    //             res.json(deedlist_db)
+    //         });
+    // });
 
     // GET route to display private needs using id#
 
-    app.get("/api/needs/:PersonUuid", function(req, res) {
+    app.get("/api/needs/:PersonId", function(req, res) {
         db.Need.findAll({
             where: {
-                PersonUuid: req.params.PersonUuid
+                PersonId: req.params.PersonId
             },
             include: [db.People]
         }).then(function(deedlist_db) {
@@ -78,17 +110,6 @@ module.exports = function(app) {
     //         include: [db.People]
     //     }).then(function(deedlist_db) {
     //         res.json(deedlist_db);
-    //     });
-    // });
-
-    // Get all public needs
-    // app.get("/api/needs", function(req, res) {
-    //     db.Need.findAll({
-    //         where: {
-                
-    //         }
-    //     }).then(function(dbExamples) {
-    //         res.json(dbExamples);
     //     });
     // });
 
