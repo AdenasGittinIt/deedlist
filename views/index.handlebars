@@ -1,9 +1,10 @@
 {{!-- PARALLAX --}}
 <div class="fixed-action-btn">
-  <a class="btn-floating btn-large red tooltipped" data-position="top" data-tooltip="What is deedlist?">
-    {{!-- <button data-target="whatDeed" class="modal-trigger"></button> --}}
+  <a class="btn-floating btn-large red tooltipped modal-trigger" data-position="top" data-tooltip="What is deedlist?"
+    data-target="whatDeed">
     <i class="large material-icons">help_outline</i>
   </a>
+  {{!-- <button data-target="whatDeed" class="modal-trigger"></button> --}}
 </div>
 <div class=" parallax-container">
   <div class="parallax"><img src="/styles/assets/logo.png"></div>
@@ -156,11 +157,20 @@
 <!-- Modal Structure -->
 <div id="whatDeed" class="modal bottom-sheet">
   <div class="modal-content">
-    <h4>What is deedlist</h4>
+    <h4>Welcome deedlist?</h4>
     <p>A lot of work</p>
   </div>
   <div class="modal-footer">
-    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cool</a>
+  </div>
+</div>
+
+{{!-- tos modal --}}
+
+<div id="tos" class="modal">
+  <div class="modal-content">
+    <h4>Terms of Service</h4>
+    {{{tos}}}
   </div>
 </div>
 
@@ -170,7 +180,7 @@
     <div class="row blue-grey lighten-3">
       <div class="col s12">
         <!-- Modal Trigger -->
-        <a class="waves-effect waves-light btn modal-trigger" style="padding: 16px;" href="/#tos">terms</a>
+        <a class="waves-effect waves-light btn modal-trigger" style="padding: 16px;" href="tos">terms</a>
       </div>
     </div>
     <div class="col l4 offset-l8 s12" style="text-align:end;">

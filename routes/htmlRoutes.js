@@ -19,11 +19,11 @@ module.exports = function(app) {
         });
     });
 
-    app.get("/#tos", function(req, res) {
+    app.get("/tos", function(req, res) {
         db.Need.findAll({}).then(function(dbNeed) {
-            res.render("#tos", {
+            res.render("tos", {
                 msg: "Terms",
-                examples: dbNeed
+                content:"tos"
             });
         });
     });
