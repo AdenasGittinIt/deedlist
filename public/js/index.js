@@ -116,14 +116,10 @@ var handlePersonSubmit = function(event) {
     }
 
     API.savePerson(person).then(function(res) {
-<<<<<<< HEAD
         // Need function to clear the modal inputs
-        console.log(res);
-=======
         console.log(res.id);
         var personID = JSON.parse(res.id);
         return personID;
->>>>>>> master
     });
 };
 
