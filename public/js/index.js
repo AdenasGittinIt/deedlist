@@ -1,4 +1,3 @@
-import { READCOMMITTED } from "sequelize/types/lib/table-hints";
 
 // Get references to page elements
 var $exampleText = $("#example-text");
@@ -113,18 +112,19 @@ var handlePersonSubmit = function(event) {
         email: email,
         zip_code: zip_code,
         private: private
-    }
+    };
 
     if (!(first_name && last_name && email && zip_code && private)) {
         alert("Be sure you have completed all required fields");
-        return;
-    }
 
+        return person;
+    }
+    
     API.savePerson(person).then(function(res) {
-        console.log(res.id);
-        var personID = JSON.parse(res.id);
-        return personID;
-    });
+
+        sessionStorage.setItem(getEmail, email)
+        console.log(person);
+    }); 
 };
 
 //added step to enter email address
@@ -135,9 +135,11 @@ handleNeedSubmit = function(event) {
     var title = $("#title").val().trim();
     var category = $("#category").val().trim();
     var details = $("#details").val().trim();
-    var email = sessionStorage.getItem("email")
+    var email = sessionStorage.getItem(event, email);
+
 
     var need = {
+    email:email,
     title: title,
     category: category,
     details: details,
@@ -147,14 +149,17 @@ handleNeedSubmit = function(event) {
 
     if (!(title && category && details)) {
         alert("Be sure you have completed all required fields");
-        return;
+        
+        return need;
     }
 
-    API.saveNeed(need).then(function() {
+    API.saveNeed(need).then(function(res) {
         //need function to clear the need form inputs
+        console.log(res.id);
+        var needID = sessionStorage.getItem(res, email)
+        return needID;
     })
 }
-
 
 
 var handleEmailCheck = function(event) {
@@ -186,7 +191,6 @@ var handleEmailCheck = function(event) {
 }
 
 
-
 // handleClaimBtnClick is called when an example's claim button is clicked
 // Change the status from available to claimed from the db and refresh the list
 var handleClaimBtnClick = function() {
@@ -213,14 +217,14 @@ var handleClaimBtnClick = function() {
     };
 
 }(jQuery))
+$("#emailModal").on('click', function(){
+    $('#emailModal').invisible();
+    $('#modal-need').visible();
+})
 $("#needClose").on('click', function(){
     $('#modal-need').invisible();
     $('#need2').visible();
 });
-
-
-
-
 
 // Add event listeners to the submit and delete buttons
 $(document).ready(function(){
@@ -235,7 +239,12 @@ $(document).ready(function(){
     $('select').formSelect();
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
+    $('.tooltipped').tooltip();
+    $('.fixed-action-btn').floatingActionButton();
 });
+
+
+
 $exampleList.on("click", ".delete", handleClaimBtnClick)
 
 //This click function sends the person payload to the server
@@ -243,6 +252,7 @@ $agreeBtn.on("click", handlePersonSubmit)
 
 //this click function sends a get request to dispay all public needs
 // $continueBtn.on("click", getPublicNeeds)
+
 
 //checking the data base to see if an email exists
 $logInBtn.on("click", handleEmailCheck)
@@ -255,3 +265,17 @@ API.savePerson(person).then(function(res) {
     var email = JSON.parse(res.email);
     sessionStorage.setItem(emailForNeed, email)
 });
+
+// function $addNeed(){
+//     var i = 1;
+//     var form = ('<br> <div class="input-field col s12"> <form> <select id="cat"> <option value="" disabled selected>Choose One</option> <option value="1">Chore </option> <option value="2">Errand</option> <option value="3">Meals</option> <option value="4">Gift</option> </select> <label>Please Select Category</label> <br> <div class="row"> <div class="input-field col s12"> <input placeholder="Need yard work done" id="needTitle" type="text" class="validate"> <label for="NeedTitle">Need Title</label> </div> <br> <div class="input-field col s12"> <input placeholder="someone with a lawn mower please help an elderly lady" id="needDetails" type="text" class="validate"> <label for="needDetails">Details about your need</label> </div> </div> </form> </div>')
+//     var $addNew = $("div"); 
+//     $addNew.attr({
+//         id:"need",
+//         class: "modal-content",
+//         content: form
+//     })
+//     $(".addForm").prepend($addNew);
+//     $addNew[i++]
+// };
+
