@@ -118,11 +118,19 @@ var handlePersonSubmit = function(event) {
     }
     
     API.savePerson(person).then(function(res) {
+<<<<<<< HEAD
 
         sessionStorage.setItem(getEmail, email)
         console.log(person);
     }); 
 
+=======
+        // Need function to clear the modal inputs
+        console.log(res.id);
+        var personID = JSON.parse(res.id);
+        return personID;
+    });
+>>>>>>> 3384154c5076d7366f07b8e6f29f5ed385f2d49c
 };
 
 //added step to enter email address
