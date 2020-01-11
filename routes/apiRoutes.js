@@ -11,6 +11,7 @@ module.exports = function(app) {
 
     // Take need info and send to need table in db
     app.post("/api/needs", function(req, res) {
+        console.log(req.body)
         db.Need.create(req.body).then(function(deedlist_db) {
             res.json(deedlist_db);
         });

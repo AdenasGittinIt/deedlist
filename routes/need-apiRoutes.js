@@ -29,6 +29,7 @@ module.exports = function(app) {
     
     // GET route to check if email exists
     app.get("/api/people/:email", function(req, res) {
+        console.log(req.params.email)
         db.People.findOne({
             where: {
                 email: req.params.email
@@ -59,7 +60,7 @@ module.exports = function(app) {
         db.Need.update(
             {
                 where: {
-                    status: req.body.status
+                    status: req.body.claimed
                 }
             }).then(function(deedlist_db) {
                 res.json(deedlist_db)

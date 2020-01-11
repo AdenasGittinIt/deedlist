@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1, 250]
             }
         },
-        claimed: {  
+        status: {  
             type: DataTypes.BOOLEAN,
             defaultValue: false
         }
