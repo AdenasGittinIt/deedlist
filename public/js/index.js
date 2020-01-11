@@ -6,7 +6,9 @@ var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 var $agreeBtn = $("#agree")
 var $continueBtn = $("to-needs")
-
+var $logInBtn = $("#fake-log-in")
+var clickOnce = true 
+var $needDoneBtn = $("#done")
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -22,12 +24,13 @@ var API = {
     },
 
     getEmail: function(email) {
+        console.log(email.email);
         return $.ajax({
             headers:{
                 "Content-Type": "application/json"
             },
             type: "GET",
-            url: "/api/email",
+            url: "/api/people/" + email.email,
             data: JSON.stringify(email)
         })
     },
@@ -134,11 +137,14 @@ handleNeedSubmit = function(event) {
     var details = $("#details").val().trim();
     var email = sessionStorage.getItem(event, email);
 
+
     var need = {
     email:email,
     title: title,
     category: category,
     details: details,
+    status: false,
+    email: email
     }
 
     if (!(title && category && details)) {
@@ -154,6 +160,36 @@ handleNeedSubmit = function(event) {
         return needID;
     })
 }
+
+
+var handleEmailCheck = function(event) {
+    event.preventDefault();
+    var emailInput = $("#emailStart").val().trim();
+
+    var email = {
+        email: emailInput
+    }
+    
+    API.getEmail(email).then(function(res) {
+        if(res === null) {
+            console.log("modal")
+            // $("#modal-need").modal("modal-content")
+            // $("#modal-need").modal("show")
+            // $('#fake-log-in').attr("class","btn modal-trigger");
+           if (clickOnce === true) {
+            console.log("clicked")
+            $("#fake-log-in").click();
+            clickOnce = false;
+           }
+            
+        }
+        else {
+            location.href = "/home"
+        }
+ 
+    })
+}
+
 
 // handleClaimBtnClick is called when an example's claim button is clicked
 // Change the status from available to claimed from the db and refresh the list
@@ -217,6 +253,19 @@ $agreeBtn.on("click", handlePersonSubmit)
 //this click function sends a get request to dispay all public needs
 // $continueBtn.on("click", getPublicNeeds)
 
+
+//checking the data base to see if an email exists
+$logInBtn.on("click", handleEmailCheck)
+
+$needDoneBtn.on("click", handleNeedSubmit)
+
+$("#emailStart").val().trim() = sessionStorage.setItem("email");
+
+API.savePerson(person).then(function(res) {
+    var email = JSON.parse(res.email);
+    sessionStorage.setItem(emailForNeed, email)
+});
+
 // function $addNeed(){
 //     var i = 1;
 //     var form = ('<br> <div class="input-field col s12"> <form> <select id="cat"> <option value="" disabled selected>Choose One</option> <option value="1">Chore </option> <option value="2">Errand</option> <option value="3">Meals</option> <option value="4">Gift</option> </select> <label>Please Select Category</label> <br> <div class="row"> <div class="input-field col s12"> <input placeholder="Need yard work done" id="needTitle" type="text" class="validate"> <label for="NeedTitle">Need Title</label> </div> <br> <div class="input-field col s12"> <input placeholder="someone with a lawn mower please help an elderly lady" id="needDetails" type="text" class="validate"> <label for="needDetails">Details about your need</label> </div> </div> </form> </div>')
@@ -229,3 +278,4 @@ $agreeBtn.on("click", handlePersonSubmit)
 //     $(".addForm").prepend($addNew);
 //     $addNew[i++]
 // };
+

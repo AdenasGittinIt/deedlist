@@ -32,6 +32,7 @@ module.exports = function(app) {
     
     // GET route to check if email exists - working
     app.get("/api/people/:email", function(req, res) {
+        console.log(req.params.email)
         db.People.findOne({
             where: {
                 email: req.params.email
