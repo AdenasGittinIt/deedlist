@@ -38,15 +38,15 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.BOOLEAN,
             defaultValue: true,
             allowNull: false
-        }
+        },
     });
 
 
-    // People.associate = function(models) {
-    //     People.hasMany(models.Need, {
-    //         onDelete: "cascade"
-    //     });
-    // };
+    People.associate = function(models) {
+        People.hasMany(models.Need, {
+            // onDelete: "cascade"
+        });
+    };
 
 
 
