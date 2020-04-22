@@ -3,14 +3,16 @@ One of the biggest obsables to getting help is knowing who to ask. This web appl
 
 Use of the site can be summed up with the following user stories:
 
-**User Story A:**  
+## User Story A:  
+
 **As a** person who has just experienced or is experiencing a life altering event,
 
 **I want to** o make my needs known by posting to a website,
 
 **So that** I can share the site with people who can help.
 
-**User Story B:**
+## User Story B:
+
 **As a** person with time and resources to share, 
 
 **I want to** see what individuals' needs are 
