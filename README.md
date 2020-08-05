@@ -1,5 +1,5 @@
 # deedList
-One of the biggest obsables to getting help is knowing who to ask. This web application addresses that problem by allowing users to post there needs publically or privately so that either close friends and family or the philanthropists of the world can see their need and do a good deed.
+One of the biggest obstacles to getting help is knowing who to ask. This web application addresses that problem by allowing users to post there needs publically or privately so that either close friends, family or the philanthropists of the world can see their need and do a good deed.
 
 Use of the site can be summed up with the following user stories:
 
@@ -28,8 +28,6 @@ Click [here](https://git.heroku.com/deedlist.git) to get started.
 
 ## Technologies Used
 
-* [Ticket Master Discovery API](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/)
-* [Open Weather API](https://openweathermap.org/)
 * [jQuery](https://code.jquery.com/)
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 * [Materialize CSS](https://materializecss.com/)
@@ -40,7 +38,7 @@ Click [here](https://git.heroku.com/deedlist.git) to get started.
 
 * More overall functionality
 * A login
-* To display status of needs (taken or available) 
+* Display status of needs (taken or available) 
 * Ability to look up needs by zip code
 * Provide private user with mini URL that can be easily shared
 
